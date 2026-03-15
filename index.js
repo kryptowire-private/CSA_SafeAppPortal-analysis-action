@@ -16,9 +16,9 @@ async function run() {
       console.log(`File Does Not Exist`);
     }
 
-    // `platform` input defined in action metadata file
-    const platform = core.getInput("platform");
-    console.log(`Platform: ${platform}`);
+    // `category` input defined in action metadata file
+    const category = core.getInput("category");
+    console.log(`category: ${category}`);
 
     // `apiKey` input defined in action metadata file
     const apiKey = core.getInput("apiKey");
@@ -27,17 +27,16 @@ async function run() {
     const formData = {
       "app": fs.createReadStream( pathToFile ),
       "key": apiKey,
-      "platform": platform
+      "category": category
     }
 
-    request.post({url:'https://emm.kryptowire.com/api/submit', formData: formData}, function optionalCallback(err, httpResponse, body) {
+    request.post({url:'https://preprod.api.quokkapedia.io/v1/developer/android/upload-binary', formData: formData}, function optionalCallback(err, httpResponse, body) {
       if (err) {
         console.error('upload failed:', err);
       }
       console.log('Upload successful!  Server responded with:', body);
       const jj = JSON.parse(body);
-      console.log("Quokka UUID: ", jj.uuid);
-      console.log("Now Scanning apk...");
+      console.log("Safe App Portal Results URL: ", jj.resultsUrl);
     });
   
     
