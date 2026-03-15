@@ -1,6 +1,6 @@
-# Quokka (Kryptowire) App Submission Action
+# CSA Safe App Portal API Submission Action
 
-This action takes the file path, platform & API key as input and submits the app file to Quokka Portal for analysis
+This action takes the file path, app category & API key as input and submits the app file to Safe App Portal for analysis
 
 ## Prerequisite
 
@@ -9,7 +9,7 @@ This action takes the file path, platform & API key as input and submits the app
 - Go to **Settings**
 - Select **Secrets** under left column
 - Click on **New Secret**
-- Provide **Name: KRYPTOWIRE_API_KEY** & **Value** as your own Kryptowire API Key
+- Provide **Name: SAP_API_KEY** & **Value** as your own Safe App Portal API Key
 - Click on **Add Secret**
 
 ## Inputs
@@ -18,14 +18,14 @@ This action takes the file path, platform & API key as input and submits the app
 
 **Required** The path to the artifact file.
 
-### `platform`
+### `category`
 
-**Required** The platform (android/ios) of the app.
+**Required** The Category of the app from the following list: 
 
 ### `apiKey`
 
 **Required** API key of the user.
-**Default** \${{ secrets.KRYPTOWIRE_API_KEY }}
+**Default** \${{ secrets.SAP_API_KEY }}
 
 ## Outputs
 
