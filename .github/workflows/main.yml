@@ -12,5 +12,5 @@ jobs:
         id: appSubmit
         with:
           path-to-file: "app/build/outputs/apk/prod/debug/app-prod-debug.apk"
-          platform: "android"
-          apiKey: ${{ secrets.KRYPTOWIRE_API_KEY }}
+          category: "ALL"
+          apiKey: ${{ secrets.SAP_API_KEY }}
